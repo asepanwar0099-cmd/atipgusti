@@ -1,0 +1,33 @@
+-- Database schema for Absensi Dosen Berbasis QR Code
+CREATE DATABASE IF NOT EXISTS absensi_dosen CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE absensi_dosen;
+
+CREATE TABLE IF NOT EXISTS admin (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  nama VARCHAR(100) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS dosen (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nidn VARCHAR(30) NOT NULL UNIQUE,
+  nama VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL,
+  kontak VARCHAR(50) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS absensi (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  dosen_id INT NOT NULL,
+  tanggal DATE NOT NULL,
+  jam_masuk TIME NOT NULL,
+  status ENUM('Hadir','Terlambat') NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (dosen_id) REFERENCES dosen(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+INSERT INTO admin (username, password, nama) VALUES
+('admin', SHA2('Admin123!',256), 'Administrator');
