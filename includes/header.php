@@ -13,6 +13,9 @@ if (session_status() === PHP_SESSION_NONE) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <?php if (!empty($extraCss)): ?>
+        <link rel="stylesheet" href="<?php echo htmlspecialchars($extraCss); ?>">
+    <?php endif; ?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm border-bottom border-secondary">

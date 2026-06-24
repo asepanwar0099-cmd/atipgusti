@@ -1,0 +1,59 @@
+/* CSS khusus halaman rekap/detail absensi agar tampilan lebih rapi & konsisten */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.06);
+}
+
+.card-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.table thead th {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.page-hero {
+  padding: 18px 20px;
+  border-radius: 14px;
+}
+
+.page-hero .page-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.page-hero .page-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0;
+}
+
+/* Tombol & link */
+a.link-info {
+  transition: opacity .15s ease-in-out, transform .15s ease-in-out;
+}
+a.link-info:hover {
+  opacity: .95;
+  transform: translateY(-1px);
+}
+
+/* Empty state */
+.empty-state {
+  padding: 26px 16px;
+  opacity: .95;
+}
+
+/* Konsistensi spacing */
+.section-spacer {
+  height: 10px;
+}
+
+/* Responsif */
+@media (max-width: 576px) {
+  .page-hero {
+    padding: 14px 14px;
+  }
+}

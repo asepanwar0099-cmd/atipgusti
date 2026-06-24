@@ -2,6 +2,8 @@
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/db.php';
 
+$extraCss = 'assets/css/rekap_detail.css';
+
 $start = $_GET['start'] ?? date('Y-m-01');
 $end = $_GET['end'] ?? date('Y-m-d');
 
