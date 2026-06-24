@@ -59,7 +59,12 @@ require_once __DIR__ . '/includes/sidebar.php';
                     <?php foreach ($records as $index => $row): ?>
                         <tr>
                             <td><?php echo $index + 1; ?></td>
-                            <td><?php echo htmlspecialchars($row['nama']); ?></td>
+                            <td>
+                                <a class="link-info fw-semibold" style="text-decoration:none;"
+                                   href="dosen_absensi_detail.php?dosen_id=<?php echo urlencode($row['id']); ?>&start=<?php echo urlencode($start); ?>&end=<?php echo urlencode($end); ?>">
+                                    <?php echo htmlspecialchars($row['nama']); ?>
+                                </a>
+                            </td>
                             <td><?php echo htmlspecialchars($row['nidn']); ?></td>
                             <td><?php echo htmlspecialchars($row['tanggal']); ?></td>
                             <td><?php echo htmlspecialchars($row['jam_masuk']); ?></td>
